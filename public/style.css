@@ -18,11 +18,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-    background: #292929;
-}
-::-webkit-scrollbar-thumb {
-    background: black;
-    border-radius: 15px;
+    width: 0;
 }
 
 @font-face {

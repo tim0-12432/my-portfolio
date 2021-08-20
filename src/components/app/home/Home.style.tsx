@@ -16,6 +16,7 @@ export const Background = styled.div`
     background-color: ${pallette[800]};
     width: 100%;
     height: 100%;
+    position: relative;
 `;
 
 export const Image = styled.div`
@@ -47,4 +48,26 @@ export const InfoBox = styled.div`
 export const ButtonContainer = styled.div`
     display: flex;
     justify-content: flex-start;
+`;
+
+export const Transition = styled.div`
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+
+    svg {
+        position: relative;
+        display: block;
+        width: calc(144% + 1.3px);
+        height: 321px;
+        opacity: 0.125;
+    }
+
+    .shape-fill {
+        fill: ${pallette[100]};
+    }
 `;

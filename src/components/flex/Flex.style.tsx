@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Row = styled.div`
     display: flex;
-    justify-content: spaced-evenly;
+    justify-content: space-between;
     align-items: center;
     flex-direction: row;
 `;
@@ -10,6 +10,10 @@ export const Row = styled.div`
 export const Column = styled.div`
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
+`;
+
+export const Container = styled.div`
+    position: relative;
 `;

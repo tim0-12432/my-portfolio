@@ -15,6 +15,7 @@ export const Bar = styled.div`
     box-shadow: 0px 12px 15px 0px rgba(0,0,0,0.25),
             0px 23px 28px 0px rgba(0,0,0,0.15),
             0px 50px 38px 0px rgba(0,0,0,0.07);
+    z-index: 9998;
 `;
 
 export const Logo = styled.h1`

@@ -1,6 +1,7 @@
 import React from "react";
 import { StickyContainer } from "react-sticky";
 import { ThemeProvider } from "../context/ThemeProvider";
+import Scrollbar from "../scrollbar/Scrollbar";
 import About from "./about/About";
 import Contact from "./contact/Contact";
 import Footer from "./footer/Footer";
@@ -11,6 +12,7 @@ import Portfolio from "./portfolio/Portfolio";
 function App(): JSX.Element {
 	return (
 		<ThemeProvider>
+			<Scrollbar />
 			<Home />
 			<StickyContainer>
 				<Navbar />
