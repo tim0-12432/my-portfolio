@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: black;
+    margin: 0;
+}
+
+::-webkit-scrollbar {
+    background: #292929;
+}
+::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 15px;
+}
+
+@font-face {
+    font-family: "Upheaval";
+    src: url("/fonts/upheavtt.ttf");
+}

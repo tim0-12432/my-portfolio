@@ -30,7 +30,8 @@ const plugins = [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
         template: join(__dirname, 'src', 'index.html'),
-        filename: "index.html"
+        filename: "index.html",
+        cache: false
     }),
     new CopyWebpackPlugin({
         patterns: [
