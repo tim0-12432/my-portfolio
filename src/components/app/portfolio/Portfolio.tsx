@@ -36,19 +36,19 @@ function Portfolio() {
 							<Fabs className="fabs">
 								{
 									details[index]?.html_url ?
-										<Fab outlined>
-											<a href={details[index].html_url} target="_blank">
+										<a href={details[index].html_url} target="_blank">
+											<Fab outlined>
 												<IoCodeSlash />
-											</a>
-										</Fab> : null
+											</Fab>
+										</a> : null
 								}
 								{
 									details[index]?.homepage ?
-										<Fab secondary outlined>
-											<a href={details[index].homepage} target="_blank">
+										<a href={details[index].homepage} target="_blank">
+											<Fab secondary outlined>
 												<IoDesktopOutline />
-											</a>
-										</Fab> : null
+											</Fab>
+										</a> : null
 								}
 							</Fabs>
 							<ProjectCard className="card">
