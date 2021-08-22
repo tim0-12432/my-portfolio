@@ -4,6 +4,7 @@ import { pallette } from "../../resources/constants/Colors";
 export const Section = styled.section`
     min-height: 100vh;
     width: 100vw;
+	background: ${pallette[600]};
 `;
 
 interface ISectionProps {

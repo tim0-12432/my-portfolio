@@ -1,0 +1,12 @@
+[
+    {
+        "name": "corona-tracker",
+        "title": "Corona-Tracker",
+        "caption": "Dashboard for provided Covid19-Data e.g. Incidences, Vaccinationcounts",
+        "image": "cv1",
+        "used": [
+            "JS",
+            "React"
+        ]
+    }
+]

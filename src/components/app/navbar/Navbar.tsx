@@ -12,6 +12,7 @@ function Navbar(): JSX.Element {
 						<Logo>Tim0_12432</Logo>
 						<Link label="home" href="#home" />
 						<Link label="about me" href="#about" />
+						<Link label="portfolio" href="#portfolio" />
 					</Bar>
 			}
 		</Sticky>

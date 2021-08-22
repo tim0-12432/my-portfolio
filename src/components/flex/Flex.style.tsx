@@ -17,3 +17,9 @@ export const Column = styled.div`
 export const Container = styled.div`
     position: relative;
 `;
+
+export const Spacer = styled.div`
+    flex-grow: 1;
+    min-height: 20px;
+    min-width: 20px;
+`;

@@ -4,7 +4,8 @@ import { IoLogoPython, IoLogoHtml5, IoLogoSass, IoLogoReact, IoLayersSharp } fro
 import { ThemeContext } from "../../context/ThemeProvider";
 import { AboutSection } from "../../elements/Sections.style";
 import { Column, Container, Row } from "../../flex/Flex.style";
-import { Headline, InfoBox, Profile, Divider, Skills, SubHeadline, SubSubHeadline, SkillCard, List, ListItem } from "./About.style";
+import { Headline, InfoBox, Profile, Divider, Skills, SubHeadline, SubSubHeadline, SkillCard, List, ListItem, Caption, Thoughts, ThoughtCard, ThoughtBody, ThoughtImage } from "./About.style";
+import data from "../../../resources/data/thoughts.json";
 
 function About(): JSX.Element {
 	const {isDark} = useContext(ThemeContext);
@@ -36,78 +37,8 @@ function About(): JSX.Element {
 					</svg>
 				</Divider>
 			</Container>
-			<Skills>
-				<SubHeadline>
-					Skillset
-				</SubHeadline>
-				<Row style={{ padding: "0 5rem", alignItems: "flex-start" }}>
-					<SkillCard>
-						<SubSubHeadline>
-							Backend
-						</SubSubHeadline>
-						<List>
-							<Item
-								icon={<SiJava />}
-								label="Java"
-							/>
-							<Item
-								icon={<IoLogoPython />}
-								label="Python"
-							/>
-							<Item
-								icon={<SiFlask />}
-								label="Flask"
-							/>
-							<Item
-								icon={<SiNodeDotJs />}
-								label="NodeJS"
-							/>
-						</List>
-					</SkillCard>
-					<SkillCard>
-						<SubSubHeadline>
-							Frontend
-						</SubSubHeadline>
-						<List>
-							<Item
-								icon={<IoLogoHtml5 />}
-								label="HTML5"
-							/>
-							<Item
-								icon={<IoLogoSass />}
-								label="CSS3/SASS"
-							/>
-							<Item
-								icon={<SiTypescript />}
-								label="TypeScript"
-							/>
-							<Item
-								icon={<IoLogoReact />}
-								label="React"
-							/>
-						</List>
-					</SkillCard>
-					<SkillCard>
-						<SubSubHeadline>
-							Workflow
-						</SubSubHeadline>
-						<List>
-							<Item
-								icon={<IoLayersSharp />}
-								label="Scrum"
-							/>
-							<Item
-								icon={<SiAtlassian />}
-								label="Jira"
-							/>
-							<Item
-								icon={<SiGit />}
-								label="Git"
-							/>
-						</List>
-					</SkillCard>
-				</Row>
-			</Skills>
+			<SkillSection />
+			<ThoughtsSection />
 		</AboutSection>
 	);
 }
@@ -126,6 +57,137 @@ function Item(props: IItemProps): JSX.Element {
 				<span className="help">?</span>
 			</a>
 		</ListItem>
+	);
+}
+
+function SkillSection(): JSX.Element {
+	return (
+		<Skills>
+			<SubHeadline>
+					Skillset
+			</SubHeadline>
+			<Row style={{ padding: "0 5rem", alignItems: "flex-start" }}>
+				<SkillCard>
+					<SubSubHeadline>
+							Backend
+					</SubSubHeadline>
+					<List>
+						<Item
+							icon={<SiJava />}
+							label="Java"
+						/>
+						<Item
+							icon={<IoLogoPython />}
+							label="Python"
+						/>
+						<Item
+							icon={<SiFlask />}
+							label="Flask"
+						/>
+						<Item
+							icon={<SiNodeDotJs />}
+							label="NodeJS"
+						/>
+					</List>
+				</SkillCard>
+				<SkillCard>
+					<SubSubHeadline>
+							Frontend
+					</SubSubHeadline>
+					<List>
+						<Item
+							icon={<IoLogoHtml5 />}
+							label="HTML5"
+						/>
+						<Item
+							icon={<IoLogoSass />}
+							label="CSS3/SASS"
+						/>
+						<Item
+							icon={<SiTypescript />}
+							label="TypeScript"
+						/>
+						<Item
+							icon={<IoLogoReact />}
+							label="React"
+						/>
+					</List>
+				</SkillCard>
+				<SkillCard>
+					<SubSubHeadline>
+							Workflow
+					</SubSubHeadline>
+					<List>
+						<Item
+							icon={<IoLayersSharp />}
+							label="Scrum"
+						/>
+						<Item
+							icon={<SiAtlassian />}
+							label="Jira"
+						/>
+						<Item
+							icon={<SiGit />}
+							label="Git"
+						/>
+					</List>
+				</SkillCard>
+			</Row>
+			<Caption>
+					...extending my knowledge everyday!
+			</Caption>
+		</Skills>
+	);
+}
+
+function ThoughtsSection(): JSX.Element {
+	return (
+		<Thoughts>
+			<SubHeadline>
+					Some random thoughts
+			</SubHeadline>
+			<Column>
+				{
+					data.map((thought, index) => {
+						if (index % 2 == 1) {
+							return (
+								<ThoughtCard key={`thought-${index}`}>
+									<ThoughtImage
+										src={`vector/${thought.image}.svg`}
+										style={{ marginRight: "4rem" }}
+									/>
+									<Column style={{ flexGrow: 1, alignItems: "flex-end" }}>
+										<SubSubHeadline style={{ paddingRight: 0 }}>
+											{thought.title}
+										</SubSubHeadline>
+										<ThoughtBody style={{ textAlign: "right" }}>
+											{thought.body}
+										</ThoughtBody>
+									</Column>
+								</ThoughtCard>
+							);
+						} else {
+							return (
+								<ThoughtCard key={`thought-${index}`}>
+									<Column style={{ flexGrow: 1 }}>
+										<SubSubHeadline style={{ paddingLeft: 0 }}>
+											{thought.title}
+										</SubSubHeadline>
+										<ThoughtBody>
+											{thought.body}
+										</ThoughtBody>
+									</Column>
+									<ThoughtImage
+										src={`vector/${thought.image}.svg`}
+										style={{ marginLeft: "4rem" }}
+									/>
+								</ThoughtCard>
+							);
+						}
+					})
+				}
+			</Column>
+		</Thoughts>
 	);
 }
 

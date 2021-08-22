@@ -70,6 +70,13 @@ export const Skills = styled.div`
     position: relative;
 `;
 
+export const Thoughts = styled.div`
+    padding-top: 2rem;
+    width: 100%;
+    background: ${pallette[600]};
+    position: relative;
+`;
+
 export const List = styled.ul`
     ${normalFont}
     padding: 0.5rem 2rem;
@@ -130,4 +137,31 @@ export const SkillCard = styled(Card)`
         width: 100%;
         text-align: center;
     }
+`;
+
+export const Caption = styled.h5`
+    ${normalFont}
+    padding: 2.5rem 5rem;
+    font-size: 1.5rem;
+    color: ${pallette[400]};
+`;
+
+export const ThoughtCard = styled(Card)`
+    width: calc(100% - 10rem);
+    margin: 1rem 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 3rem;
+`;
+
+export const ThoughtImage = styled.img`
+    width: 17rem;
+    height: 17rem;
+`;
+
+export const ThoughtBody = styled.p`
+    ${normalFont}
+    white-space: pre-line;
+    font-size: 1.2rem;
 `;
