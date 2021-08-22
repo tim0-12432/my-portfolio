@@ -1,18 +1,28 @@
 import React, { useEffect, useState } from "react";
-import { IoCodeSlash, IoDesktopOutline } from "react-icons/io5";
+import { IoCodeSlash, IoDesktopOutline, IoEyeOutline, IoGitNetworkOutline, IoStarOutline, IoCalendarOutline } from "react-icons/io5";
 import { Section } from "../../elements/Sections.style";
 import { Headline, ProjectCard, PreviewImage, SubSubHeadline, InfoBox, Caption, Item, Fabs, Fab, ProjectContainer } from "./Portfolio.style";
 import data from "../../../resources/data/projects.json";
 import { Column, Row, Spacer } from "../../flex/Flex.style";
-import getGithubInfoForRepo from "../../../api/github";
+import axios from "axios";
 
-function Portfolio(): JSX.Element {
+function Portfolio() {
 	const [details, setDetails] = useState<any>([]);
 
 	useEffect(() => {
-		data.forEach(async (project, idx) => {
-		});
+		fetchApi(0);
 	}, []);
+
+	function fetchApi(idx: number) {
+		axios.get(`https://api.github.com/repos/tim0-12432/${data[idx].name}`)
+			.then((response) => {
+				setDetails((details: any) => [...details, response.data]);
+			}).then(() => {
+				if(data[idx + 1]) {
+					fetchApi(idx + 1);
+				}
+			});
+	}
 
 	console.log(details);
 
@@ -24,12 +34,22 @@ function Portfolio(): JSX.Element {
 					return (
 						<ProjectContainer key={`project-${index}`}>
 							<Fabs className="fabs">
-								<Fab outlined>
-									<IoCodeSlash />
-								</Fab>
-								<Fab secondary outlined>
-									<IoDesktopOutline />
-								</Fab>
+								{
+									details[index]?.html_url ?
+										<Fab outlined>
+											<a href={details[index].html_url} target="_blank">
+												<IoCodeSlash />
+											</a>
+										</Fab> : null
+								}
+								{
+									details[index]?.homepage ?
+										<Fab secondary outlined>
+											<a href={details[index].homepage} target="_blank">
+												<IoDesktopOutline />
+											</a>
+										</Fab> : null
+								}
 							</Fabs>
 							<ProjectCard className="card">
 								<InfoBox>
@@ -53,6 +73,34 @@ function Portfolio(): JSX.Element {
 													})
 												}
 											</Item>
+											{
+												details[index]?.forks_count != undefined ?
+													<Item>
+														<IoGitNetworkOutline />
+														{details[index].forks_count}
+													</Item> : null
+											}
+											{
+												details[index]?.stargazers_count != undefined ?
+													<Item>
+														<IoStarOutline />
+														{details[index].stargazers_count}
+													</Item> : null
+											}
+											{
+												details[index]?.watchers_count != undefined ?
+													<Item>
+														<IoEyeOutline />
+														{details[index].watchers_count}
+													</Item> : null
+											}
+											{
+												details[index]?.created_at != undefined ?
+													<Item>
+														<IoCalendarOutline />
+														<DateString date={details[index]?.created_at} />
+													</Item> : null
+											}
 										</Row>
 									</Column>
 								</InfoBox>
@@ -65,5 +113,10 @@ function Portfolio(): JSX.Element {
 		</Section>
 	);
 }
+
+const DateString = (props: {date: string}) => {
+	const date = new Date(props.date);
+	return <>{date.toLocaleDateString()}</>;
+};
 
 export default Portfolio;

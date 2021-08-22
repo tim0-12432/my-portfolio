@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { normalTransition } from "../../resources/constants/Animations";
 import { pallette, primaryGradient, secondaryGradient } from "../../resources/constants/Colors";
-import { normalFont } from "../../resources/constants/Fonts";
+import { normalFont, normalLink } from "../../resources/constants/Fonts";
 
 interface IButtonProps {
     primary?: boolean;
@@ -45,26 +45,37 @@ export const Button = styled.button.attrs<IButtonProps>({})`
 	(props: IButtonProps) => {
 		if (props["outlined"]){
 			return `
-                &::before {
-                    content: "";
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    border: 3px solid transparent;
-                    border-radius: 15px;
-                    background: ${getGradient(props)} border-box;
-                    -webkit-mask:
-                        linear-gradient(#fff 0 0) content-box,
-                        linear-gradient(#fff 0 0);
-                    -webkit-mask-composite: destination-out;
-                    mask-composite: exclude;
-                }
-                `;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        border: 3px solid transparent;
+                        border-radius: 15px;
+                        background: ${getGradient(props)} border-box;
+                        -webkit-mask:
+                            linear-gradient(#fff 0 0) content-box,
+                            linear-gradient(#fff 0 0);
+                        -webkit-mask-composite: destination-out;
+                        mask-composite: exclude;
+                    }
+                    `;
 		}
 	}
 }
+    a {
+        ${normalLink}
+        color: ${
+	(props: IButtonProps) => {
+		if (props["secondary"] && !props["outlined"]) {
+			return pallette[600];
+		} else {
+			return pallette[200];
+		}
+	}};
+    }
 `;
 
 const getGradient = (props: IButtonProps) => {

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { normalTransition } from "../../../resources/constants/Animations";
-import { pallette } from "../../../resources/constants/Colors";
+import { pallette, primary, secondary } from "../../../resources/constants/Colors";
 import { headline, normalFont, subSubHeadline } from "../../../resources/constants/Fonts";
 import { Button } from "../../elements/Button.style";
 import { Card } from "../../elements/Card.style";
@@ -14,6 +14,10 @@ export const Headline = styled.h1`
 export const SubSubHeadline = styled.h3`
     ${subSubHeadline}
     padding-left: 0;
+    color: ${pallette[500]};
+    -webkit-text-fill-color: ${pallette[500]};
+    background: transparent;
+    ${normalTransition}
 `;
 
 export const ProjectContainer = styled(Container)`
@@ -23,6 +27,12 @@ export const ProjectContainer = styled(Container)`
     &:hover {
         div.card {
             transform: translateX(3rem);
+
+            div > div > div p, div > div > h3 {
+                background: linear-gradient(129deg, ${primary} 0%, ${secondary} 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
         }
     }
 `;
@@ -53,8 +63,14 @@ export const Caption = styled.h5`
 export const Item = styled.p`
     ${normalFont}
     font-size: 1.5rem;
-    margin-right: 1rem;
+    margin-right: 1.7rem;
     color: ${pallette[500]};
+    -webkit-text-fill-color: ${pallette[500]};
+    background: transparent;
+    ${normalTransition}
+    svg {
+        margin-right: 0.3rem;
+    }
 `;
 
 export const InfoBox = styled.div`

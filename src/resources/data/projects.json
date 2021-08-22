@@ -5,8 +5,39 @@
         "caption": "Dashboard for provided Covid19-Data e.g. Incidences, Vaccinationcounts",
         "image": "cv1",
         "used": [
-            "JS",
+            "JavaScript",
             "React"
+        ]
+    },
+    {
+        "name": "markdown2html",
+        "title": "Markdown2Html",
+        "caption": "Electronapp which helps creating Markdwon sheets, provides a preview and can convert it to HTML.",
+        "image": "m2h1",
+        "used": [
+            "TypeScript",
+            "React",
+            "Electron"
+        ]
+    },
+    {
+        "name": "github-summary",
+        "title": "Github Summary Generator",
+        "caption": "Commandline tool generating a summary about a user’s contributions in a given timerange",
+        "image": "ghs1",
+        "used": [
+            "Python"
+        ]
+    },
+    {
+        "name": "coffee-postcard",
+        "title": "CoffeePostcard",
+        "caption": "An Electronapp to create REST requests just like 'Postman'.",
+        "image": "pc1",
+        "used": [
+            "CoffeeScript",
+            "React",
+            "Electron"
         ]
     }
 ]
