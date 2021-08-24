@@ -7,6 +7,7 @@ function Contact() {
 	return (
 		<Section id="contact">
             <Headline>Contact Me</Headline>
+            <SocialCaption style={{ paddingLeft: "5rem" }}>Get in touch...</SocialCaption>
             <ContactContainer>
                 {
                     data.map((social, index) => {
