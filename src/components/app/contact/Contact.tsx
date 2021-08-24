@@ -1,6 +1,6 @@
 import React from "react";
 import { Section } from "../../elements/Sections.style";
-import { ContactCard, ContactContainer, Headline, Link, SocialCaption, SocialIcon } from "./Contact.style";
+import { ContactCard, ContactContainer, Headline, Link, SocialCaption, SocialIcon, SocialName } from "./Contact.style";
 import data from "../../../resources/data/social";
 
 function Contact() {
@@ -19,6 +19,9 @@ function Contact() {
                                     <SocialCaption>
                                         {social.network}
                                     </SocialCaption>
+                                    <SocialName>
+                                        {social.name}
+                                    </SocialName>
                                 </Link>
                             </ContactCard>
                         );

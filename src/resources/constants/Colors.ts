@@ -5,7 +5,7 @@ export const secondary = "#62FFF6";
 
 const lightPrimary = "#FF7E7E";
 
-const lightSecondary = "#B2FFFF";
+const lightSecondary = "#0EA8B3";
 
 export const primaryGradient = `linear-gradient(23deg, ${primary} 0%, ${lightPrimary} 100%)`;
 

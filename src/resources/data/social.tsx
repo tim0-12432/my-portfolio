@@ -1,30 +1,30 @@
 import React from "react";
-import { IoChatbubblesOutline, IoLogoDiscord, IoLogoGithub, IoLogoInstagram, IoLogoSnapchat, IoMailOutline } from "react-icons/io5";
+import { IoChatbubbles, IoLogoDiscord, IoLogoGithub, IoLogoInstagram, IoLogoSnapchat, IoMail } from "react-icons/io5";
 
 export default [
 	{
 		icon: <IoLogoInstagram />,
 		network: "Instagram",
 		name: "tim0_12432",
-		link: "http://bit.ly/Instagram-tim0_12432"
+		link: "https://bit.ly/Instagram-tim0_12432"
 	},
 	{
-		icon: <IoChatbubblesOutline />,
+		icon: <IoChatbubbles />,
 		network: "Tellonym",
 		name: "tim012432",
-		link: "http://bit.ly/Tellonym-tim0_12432"
+		link: "https://bit.ly/Tellonym-tim0_12432"
 	},
 	{
 		icon: <IoLogoSnapchat />,
 		network: "Snapchat",
 		name: "tim0_12432",
-		link: "http://bit.ly/Snapchat-tim0_12432"
+		link: "https://bit.ly/Snapchat-tim0_12432"
 	},
 	{
 		icon: <IoLogoDiscord />,
 		network: "Discord",
-		name: "tim0_12432",
-		link: "http://bit.ly/Discord-tim0_12432"
+		name: "hansSchmidt#0852",
+		link: "https://bit.ly/Discord-tim0_12432"
 	},
 	{
 		icon: <IoLogoGithub />,
@@ -33,7 +33,7 @@ export default [
 		link: "https://bit.ly/Github-tim0_12432"
 	},
 	{
-		icon: <IoMailOutline />,
+		icon: <IoMail />,
 		network: "E-Mail",
 		name: "info@tim0-12432.me",
 		link: "mailto://info@tim0-12432.me"
