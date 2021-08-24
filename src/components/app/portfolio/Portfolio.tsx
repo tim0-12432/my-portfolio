@@ -5,6 +5,7 @@ import { Headline, ProjectCard, PreviewImage, SubSubHeadline, InfoBox, Caption, 
 import data from "../../../resources/data/projects.json";
 import { Column, Row, Spacer } from "../../flex/Flex.style";
 import axios from "axios";
+import { GlassMagnifier } from "react-image-magnifiers";
 
 function Portfolio() {
 	const [details, setDetails] = useState<any>([]);
@@ -23,8 +24,6 @@ function Portfolio() {
 				}
 			});
 	}
-
-	console.log(details);
 
 	return (
 		<Section id="portfolio">
@@ -104,7 +103,13 @@ function Portfolio() {
 										</Row>
 									</Column>
 								</InfoBox>
-								<PreviewImage src={`images/projects/${project.image}.png`} />
+								<PreviewImage>
+									<GlassMagnifier
+										imageSrc={`images/projects/${project.image}.png`}
+										magnifierBorderSize={3}
+										magnifierSize="75%"
+									/>
+								</PreviewImage>
 							</ProjectCard>
 						</ProjectContainer>
 					);

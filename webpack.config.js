@@ -44,8 +44,16 @@ const plugins = [
 const config = {
     mode: isProd,
 	resolve: {
+        modules: [
+            join(__dirname, 'node_modules')
+        ],
 		extensions: [".js", ".jsx", ".ts", ".tsx"]
 	},
+    resolveLoader: {
+        modules: [
+            join(__dirname, 'node_modules')
+        ]
+    },
 	entry:  {
 		index: resolve(__dirname, "src", "index.tsx")
 	},

@@ -35,6 +35,9 @@ export const ProjectContainer = styled(Container)`
             }
         }
     }
+    &:last-child {
+        margin-bottom: 0;
+    }
 `;
 
 export const ProjectCard = styled(Card)`
@@ -47,9 +50,10 @@ export const ProjectCard = styled(Card)`
     transform: translateX(0);
 `;
 
-export const PreviewImage = styled.img`
+export const PreviewImage = styled.div`
     width: 15rem;
     border-radius: 15px;
+    overflow: hidden;
 `;
 
 export const Caption = styled.h5`
