@@ -21,7 +21,7 @@ export const Paragraph = styled.p.attrs<IisDarkProps>({})`
     color: ${
 	(props: IisDarkProps) => {
 		if (props["isDark"]){
-			return pallette[200];
+			return pallette[300];
 		} else {
 			return pallette[600];
 		}

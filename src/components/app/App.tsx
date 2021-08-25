@@ -1,7 +1,7 @@
 import lax from "lax.ts";
 import React, { useEffect } from "react";
 import { StickyContainer } from "react-sticky";
-import { ThemeProvider } from "../context/ThemeProvider";
+import { ThemeProvider } from "../context/ThemeContext";
 import Scrollbar from "../scrollbar/Scrollbar";
 import About from "./about/About";
 import Contact from "./contact/Contact";
