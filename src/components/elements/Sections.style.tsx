@@ -20,3 +20,14 @@ export const AboutSection = styled(Section).attrs<ISectionProps>({})`
 		}
 	}};
 `;
+
+export const FooterSection = styled(Section).attrs<ISectionProps>({})`
+    background: ${
+	(props: ISectionProps) => {
+		if (props["isDark"]){
+			return pallette[700];
+		} else {
+			return pallette[200];
+		}
+	}};
+`;

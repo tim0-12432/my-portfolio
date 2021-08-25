@@ -34,7 +34,7 @@ export const SocialName = styled.h6`
 export const ContactContainer = styled(Container)`
     width: 100%;
     height: fit-content;
-    padding: 0.5rem 3rem 5rem 3rem;
+    padding: 0.5rem 3rem 10rem 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
