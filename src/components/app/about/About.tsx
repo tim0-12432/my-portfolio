@@ -66,7 +66,7 @@ function SkillSection(): JSX.Element {
 			<SubHeadline>
 					Skillset
 			</SubHeadline>
-			<Row style={{ padding: "0 5rem", alignItems: "flex-start" }}>
+			<Row style={{ padding: "0 5rem", alignItems: "flex-start", flexWrap: "wrap" }}>
 				<SkillCard>
 					<SubSubHeadline>
 							Backend

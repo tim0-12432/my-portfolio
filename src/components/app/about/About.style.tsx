@@ -3,6 +3,7 @@ import { normalTransition } from "../../../resources/constants/Animations";
 import { pallette } from "../../../resources/constants/Colors";
 import { headline, subHeadline, subSubHeadline, normalFont, normalLink } from "../../../resources/constants/Fonts";
 import { Card } from "../../elements/Card.style";
+import { isMobileRatio } from "../utility";
 
 interface IisDarkProps {
     isDark?: boolean;
@@ -24,6 +25,11 @@ export const InfoBox = styled.p.attrs<IisDarkProps>({})`
     ${normalFont}
     font-size: 1.6rem;
     padding: 0 0 0 5rem;
+    margin-bottom: ${
+	isMobileRatio()
+		? "15rem"
+		: "2rem"
+};
     color: ${
 	(props: IisDarkProps) => {
 		if (props["isDark"]){
@@ -43,6 +49,11 @@ export const Profile = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: scroll;
+    ${
+	isMobileRatio()
+		? "display: none;"
+		: null
+}
 `;
 
 export const Divider = styled.div`
@@ -137,6 +148,7 @@ export const SkillCard = styled(Card)`
         width: 100%;
         text-align: center;
     }
+    margin-bottom: 1rem;
 `;
 
 export const Caption = styled.h5`

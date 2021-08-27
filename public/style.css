@@ -9,6 +9,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    font-size: 16px;
 }
 
 body {
@@ -24,6 +25,18 @@ body {
 @media (min-width: 1850px) {
     body {
         width: 1850px;
+    }
+}
+
+@media (max-width: 1159px) {
+    html {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 1108px) {
+    html {
+        font-size: 8px;
     }
 }
 

@@ -4,6 +4,7 @@ import { Sticky } from "react-sticky";
 import { ThemeContext } from "../../context/ThemeContext";
 import { NavLink } from "../../elements/Links.style";
 import { Spacer } from "../../flex/Flex.style";
+import { isMobileRatio } from "../utility";
 import { Bar, LinkContainer, Logo, ToggleButton } from "./Navbar.style";
 
 function Navbar(): JSX.Element {
@@ -13,10 +14,15 @@ function Navbar(): JSX.Element {
 				({style}) =>
 					<Bar style={style}>
 						<Logo>Tim0_12432</Logo>
-						<Link label="home" href="#home" />
-						<Link label="about me" href="#about" />
-						<Link label="portfolio" href="#portfolio" />
-						<Link label="contact" href="#contact" />
+						{
+							!isMobileRatio() &&
+							<>
+								<Link label="home" href="#home" />
+								<Link label="about me" href="#about" />
+								<Link label="portfolio" href="#portfolio" />
+								<Link label="contact" href="#contact" />
+							</>
+						}
 						<Spacer />
 						<ThemeToggle />
 					</Bar>

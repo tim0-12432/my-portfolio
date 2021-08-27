@@ -4,6 +4,7 @@ import { pallette, primaryGradient, secondaryGradient } from "../../../resources
 import { headline, normalFont, normalLink, subSubHeadline } from "../../../resources/constants/Fonts";
 import { Card } from "../../elements/Card.style";
 import { Container } from "../../flex/Flex.style";
+import { isMobileRatio } from "../utility";
 
 export const Headline = styled.h1`
     ${headline}
@@ -34,7 +35,11 @@ export const SocialName = styled.h6`
 export const ContactContainer = styled(Container)`
     width: 100%;
     height: fit-content;
-    padding: 0.5rem 3rem 10rem 3rem;
+    padding: 0.5rem 3rem ${
+	isMobileRatio()
+		? "15rem"
+		: "10rem"
+} 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
