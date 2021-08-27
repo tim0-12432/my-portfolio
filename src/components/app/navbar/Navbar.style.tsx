@@ -5,7 +5,7 @@ import { logoFont, normalFont } from "../../../resources/constants/Fonts";
 
 
 export const Bar = styled.div`
-    width: 100vw;
+    width: 100%;
     min-height: 5rem;
     display: flex;
     justify-content: flex-start;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { pallette } from "../../resources/constants/Colors";
 
 export const Section = styled.section`
-    width: 100vw;
+    width: 100%;
 	background: ${pallette[600]};
 `;
 

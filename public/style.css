@@ -6,6 +6,9 @@
 
 html {
     scroll-behavior: smooth;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 body {
@@ -15,6 +18,13 @@ body {
     overflow-y: auto;
     background-color: black;
     margin: 0;
+    position: relative;
+}
+
+@media (min-width: 1850px) {
+    body {
+        width: 1850px;
+    }
 }
 
 ::-webkit-scrollbar {
