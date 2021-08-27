@@ -89,7 +89,7 @@ export const Link = styled.a`
     h6 {
         opacity: 0;
     }
-    &:hover {
+    &:hover, &:focus {
         &::before {
             transform: translateX(0);
         }

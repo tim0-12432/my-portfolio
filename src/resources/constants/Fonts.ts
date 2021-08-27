@@ -3,6 +3,7 @@ import { pallette, primary, secondary } from "./Colors";
 export const logoFont = `
     font-family: "Upheaval", Arial, sans-serif;
     letter-spacing: 2px;
+    user-select: none;
 `;
 
 export const normalFont = `
@@ -19,6 +20,7 @@ export const headline = `
     font-size: 5.3rem;
     width: fit-content;
     padding: 5rem;
+    user-select: none;
 `;
 
 export const normalLink = `
@@ -36,6 +38,7 @@ export const subHeadline = `
     font-size: 3rem;
     width: fit-content;
     padding: 5rem;
+    user-select: none;
 `;
 
 export const subSubHeadline = `

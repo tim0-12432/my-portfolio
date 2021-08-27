@@ -13,7 +13,7 @@ function Contact() {
 					data.map((social, index) => {
 						return (
 							<ContactCard key={`contact-${index}`}>
-								<Link href={social.link} target="_blank">
+								<Link href={social.link} target="_blank" referrerPolicy="origin">
 									<SocialIcon>
 										{social.icon}
 									</SocialIcon>

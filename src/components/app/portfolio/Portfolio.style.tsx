@@ -24,7 +24,7 @@ export const ProjectContainer = styled(Container)`
     width: calc(100% - 10rem);
     height: fit-content;
     margin: 1rem 5rem;
-    &:hover {
+    &:hover, &:focus {
         div.card {
             transform: translateX(3rem);
 

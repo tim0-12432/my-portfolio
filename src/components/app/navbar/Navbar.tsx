@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import { IoSunny } from "react-icons/io5";
+import { IoMoon, IoSunny } from "react-icons/io5";
 import { Sticky } from "react-sticky";
-import { useTheme } from "../../context/ThemeContext";
-import { Button } from "../../elements/Button.style";
+import { ThemeContext } from "../../context/ThemeContext";
 import { NavLink } from "../../elements/Links.style";
-import { Bar, LinkContainer, Logo } from "./Navbar.style";
+import { Spacer } from "../../flex/Flex.style";
+import { Bar, LinkContainer, Logo, ToggleButton } from "./Navbar.style";
 
 function Navbar(): JSX.Element {
 	return (
@@ -17,6 +17,7 @@ function Navbar(): JSX.Element {
 						<Link label="about me" href="#about" />
 						<Link label="portfolio" href="#portfolio" />
 						<Link label="contact" href="#contact" />
+						<Spacer />
 						<ThemeToggle />
 					</Bar>
 			}
@@ -35,12 +36,15 @@ function Link(props: {label: string, href: string}): JSX.Element {
 }
 
 function ThemeToggle(): JSX.Element {
-	const {dispatch} = useTheme();
-
+	const {isDark, toggleTheme} = useContext(ThemeContext);
 	return (
-		<Button outlined onClick={() => dispatch()}>
-			<IoSunny />
-		</Button>
+		<ToggleButton onClick={() => toggleTheme()}>
+			{
+				isDark
+					? <IoSunny />
+					: <IoMoon />
+			}
+		</ToggleButton>
 	);
 }
 

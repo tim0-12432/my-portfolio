@@ -1,20 +1,20 @@
 import React, { useContext } from "react";
 import { SiJava, SiFlask, SiNodeDotJs, SiTypescript, SiAtlassian, SiGit } from "react-icons/si";
 import { IoLogoPython, IoLogoHtml5, IoLogoSass, IoLogoReact, IoLayersSharp } from "react-icons/io5";
-import { useTheme } from "../../context/ThemeContext";
+import { ThemeContext } from "../../context/ThemeContext";
 import { AboutSection } from "../../elements/Sections.style";
 import { Column, Container, Row } from "../../flex/Flex.style";
 import { Headline, InfoBox, Profile, Divider, Skills, SubHeadline, SubSubHeadline, SkillCard, List, ListItem, Caption, Thoughts, ThoughtCard, ThoughtBody, ThoughtImage } from "./About.style";
 import data from "../../../resources/data/thoughts.json";
 
 function About(): JSX.Element {
-	const {state: {dark}} = useTheme();
+	const {isDark} = useContext(ThemeContext);
 	return (
-		<AboutSection isDark={dark} id="about">
+		<AboutSection isDark={isDark} id="about">
 			<Row>
 				<Column>
 					<Headline>About Me</Headline>
-					<InfoBox isDark={dark}>
+					<InfoBox isDark={isDark}>
 						I am a 19 years old student from Germany.
 						<br/>
 						<br/>
