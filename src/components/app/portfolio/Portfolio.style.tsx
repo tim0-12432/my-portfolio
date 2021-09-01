@@ -23,7 +23,7 @@ export const SubSubHeadline = styled.h3`
 export const ProjectContainer = styled(Container)`
     width: calc(100% - 10rem);
     height: fit-content;
-    margin: 1rem 5rem;
+    margin: 2rem 5rem 0rem 5rem;
     &:hover, &:focus {
         div.card {
             transform: translateX(3rem);
@@ -34,9 +34,6 @@ export const ProjectContainer = styled(Container)`
                 -webkit-text-fill-color: transparent;
             }
         }
-    }
-    &:last-child {
-        margin-bottom: 0;
     }
 `;
 
@@ -52,6 +49,7 @@ export const ProjectCard = styled(Card)`
 
 export const PreviewImage = styled.div`
     width: 15rem;
+    min-width: 15rem;
     border-radius: 15px;
     overflow: hidden;
 `;

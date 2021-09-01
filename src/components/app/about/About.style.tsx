@@ -170,10 +170,12 @@ export const ThoughtCard = styled(Card)`
 export const ThoughtImage = styled.img`
     width: 17rem;
     height: 17rem;
+    max-width: 25%;
 `;
 
 export const ThoughtBody = styled.p`
     ${normalFont}
     white-space: pre-line;
     font-size: 1.2rem;
+    margin-top: 1rem;
 `;
