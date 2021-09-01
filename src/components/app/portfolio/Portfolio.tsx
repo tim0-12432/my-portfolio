@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Fade from "react-reveal/Fade";
 import { IoCodeSlash, IoDesktopOutline, IoEyeOutline, IoGitNetworkOutline, IoStarOutline, IoCalendarOutline } from "react-icons/io5";
 import { Section } from "../../elements/Sections.style";
 import { Headline, ProjectCard, PreviewImage, SubSubHeadline, InfoBox, Caption, Item, Fabs, Fab, ProjectContainer } from "./Portfolio.style";
@@ -28,93 +29,95 @@ function Portfolio() {
 	return (
 		<Section id="portfolio">
 			<Headline>Projects and Case studies</Headline>
-			{
-				data.map((project, index) => {
-					return (
-						<ProjectContainer key={`project-${index}`}>
-							<Fabs className="fabs">
-								{
-									details[index]?.html_url ?
-										<a href={details[index].html_url} target="_blank">
-											<Fab outlined>
-												<IoCodeSlash />
-											</Fab>
-										</a> : null
-								}
-								{
-									details[index]?.homepage ?
-										<a href={details[index].homepage} target="_blank">
-											<Fab secondary outlined>
-												<IoDesktopOutline />
-											</Fab>
-										</a> : null
-								}
-							</Fabs>
-							<ProjectCard className="card">
-								<InfoBox>
-									<Column>
-										<SubSubHeadline>
-											{project.title}
-										</SubSubHeadline>
-										<Caption>
-											{project.caption}
-										</Caption>
-										<Spacer />
-										<Row>
-											<Item>
+			<Fade bottom>
+				{
+					data.map((project, index) => {
+						return (
+							<ProjectContainer key={`project-${index}`}>
+								<Fabs className="fabs">
+									{
+										details[index]?.html_url ?
+											<a href={details[index].html_url} target="_blank">
+												<Fab outlined>
+													<IoCodeSlash />
+												</Fab>
+											</a> : null
+									}
+									{
+										details[index]?.homepage ?
+											<a href={details[index].homepage} target="_blank">
+												<Fab secondary outlined>
+													<IoDesktopOutline />
+												</Fab>
+											</a> : null
+									}
+								</Fabs>
+								<ProjectCard className="card">
+									<InfoBox>
+										<Column>
+											<SubSubHeadline>
+												{project.title}
+											</SubSubHeadline>
+											<Caption>
+												{project.caption}
+											</Caption>
+											<Spacer />
+											<Row>
+												<Item>
+													{
+														project.used.map((technique, idx) => {
+															if (idx == 0) {
+																return technique;
+															} else {
+																return ", " + technique;
+															}
+														})
+													}
+												</Item>
 												{
-													project.used.map((technique, idx) => {
-														if (idx == 0) {
-															return technique;
-														} else {
-															return ", " + technique;
-														}
-													})
+													details[index]?.forks_count != undefined ?
+														<Item>
+															<IoGitNetworkOutline />
+															{details[index].forks_count}
+														</Item> : null
 												}
-											</Item>
-											{
-												details[index]?.forks_count != undefined ?
-													<Item>
-														<IoGitNetworkOutline />
-														{details[index].forks_count}
-													</Item> : null
-											}
-											{
-												details[index]?.stargazers_count != undefined ?
-													<Item>
-														<IoStarOutline />
-														{details[index].stargazers_count}
-													</Item> : null
-											}
-											{
-												details[index]?.watchers_count != undefined ?
-													<Item>
-														<IoEyeOutline />
-														{details[index].watchers_count}
-													</Item> : null
-											}
-											{
-												details[index]?.created_at != undefined ?
-													<Item>
-														<IoCalendarOutline />
-														<DateString date={details[index]?.created_at} />
-													</Item> : null
-											}
-										</Row>
-									</Column>
-								</InfoBox>
-								<PreviewImage>
-									<GlassMagnifier
-										imageSrc={`images/projects/${project.image}.png`}
-										magnifierBorderSize={3}
-										magnifierSize="75%"
-									/>
-								</PreviewImage>
-							</ProjectCard>
-						</ProjectContainer>
-					);
-				})
-			}
+												{
+													details[index]?.stargazers_count != undefined ?
+														<Item>
+															<IoStarOutline />
+															{details[index].stargazers_count}
+														</Item> : null
+												}
+												{
+													details[index]?.watchers_count != undefined ?
+														<Item>
+															<IoEyeOutline />
+															{details[index].watchers_count}
+														</Item> : null
+												}
+												{
+													details[index]?.created_at != undefined ?
+														<Item>
+															<IoCalendarOutline />
+															<DateString date={details[index]?.created_at} />
+														</Item> : null
+												}
+											</Row>
+										</Column>
+									</InfoBox>
+									<PreviewImage>
+										<GlassMagnifier
+											imageSrc={`images/projects/${project.image}.png`}
+											magnifierBorderSize={3}
+											magnifierSize="75%"
+										/>
+									</PreviewImage>
+								</ProjectCard>
+							</ProjectContainer>
+						);
+					})
+				}
+			</Fade>
 		</Section>
 	);
 }

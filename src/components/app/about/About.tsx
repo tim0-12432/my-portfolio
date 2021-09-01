@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import Fade from "react-reveal/Fade";
 import { SiJava, SiFlask, SiNodeDotJs, SiTypescript, SiAtlassian, SiGit } from "react-icons/si";
 import { IoLogoPython, IoLogoHtml5, IoLogoSass, IoLogoReact, IoLayersSharp } from "react-icons/io5";
 import { ThemeContext } from "../../context/ThemeContext";
@@ -14,21 +15,25 @@ function About(): JSX.Element {
 			<Row>
 				<Column>
 					<Headline>About Me</Headline>
-					<InfoBox isDark={isDark}>
+					<Fade left>
+						<InfoBox isDark={isDark}>
 						I am a 19 years old student from Germany.
-						<br/>
-						<br/>
+							<br/>
+							<br/>
 						I found a passion in working with computers.
-						<br/>
-						<br/>
+							<br/>
+							<br/>
 						2016 I started coding in JavaScript.
-						<br/>
+							<br/>
 						Since then it became a hobby to me.
-					</InfoBox>
+						</InfoBox>
+					</Fade>
 				</Column>
-				<Column>
-					<Profile />
-				</Column>
+				<Fade right>
+					<Column>
+						<Profile />
+					</Column>
+				</Fade>
 			</Row>
 			<Container>
 				<Divider>
@@ -63,79 +68,81 @@ function Item(props: IItemProps): JSX.Element {
 function SkillSection(): JSX.Element {
 	return (
 		<Skills>
-			<SubHeadline>
+			<Fade bottom>
+				<SubHeadline>
 					Skillset
-			</SubHeadline>
-			<Row style={{ padding: "0 5rem", alignItems: "flex-start", flexWrap: "wrap" }}>
-				<SkillCard>
-					<SubSubHeadline>
+				</SubHeadline>
+				<Row style={{ padding: "0 5rem", alignItems: "flex-start", flexWrap: "wrap" }}>
+					<SkillCard>
+						<SubSubHeadline>
 							Backend
-					</SubSubHeadline>
-					<List>
-						<Item
-							icon={<SiJava />}
-							label="Java"
-						/>
-						<Item
-							icon={<IoLogoPython />}
-							label="Python"
-						/>
-						<Item
-							icon={<SiFlask />}
-							label="Flask"
-						/>
-						<Item
-							icon={<SiNodeDotJs />}
-							label="NodeJS"
-						/>
-					</List>
-				</SkillCard>
-				<SkillCard>
-					<SubSubHeadline>
+						</SubSubHeadline>
+						<List>
+							<Item
+								icon={<SiJava />}
+								label="Java"
+							/>
+							<Item
+								icon={<IoLogoPython />}
+								label="Python"
+							/>
+							<Item
+								icon={<SiFlask />}
+								label="Flask"
+							/>
+							<Item
+								icon={<SiNodeDotJs />}
+								label="NodeJS"
+							/>
+						</List>
+					</SkillCard>
+					<SkillCard>
+						<SubSubHeadline>
 							Frontend
-					</SubSubHeadline>
-					<List>
-						<Item
-							icon={<IoLogoHtml5 />}
-							label="HTML5"
-						/>
-						<Item
-							icon={<IoLogoSass />}
-							label="CSS3/SASS"
-						/>
-						<Item
-							icon={<SiTypescript />}
-							label="TypeScript"
-						/>
-						<Item
-							icon={<IoLogoReact />}
-							label="React"
-						/>
-					</List>
-				</SkillCard>
-				<SkillCard>
-					<SubSubHeadline>
+						</SubSubHeadline>
+						<List>
+							<Item
+								icon={<IoLogoHtml5 />}
+								label="HTML5"
+							/>
+							<Item
+								icon={<IoLogoSass />}
+								label="CSS3/SASS"
+							/>
+							<Item
+								icon={<SiTypescript />}
+								label="TypeScript"
+							/>
+							<Item
+								icon={<IoLogoReact />}
+								label="React"
+							/>
+						</List>
+					</SkillCard>
+					<SkillCard>
+						<SubSubHeadline>
 							Workflow
-					</SubSubHeadline>
-					<List>
-						<Item
-							icon={<IoLayersSharp />}
-							label="Scrum"
-						/>
-						<Item
-							icon={<SiAtlassian />}
-							label="Jira"
-						/>
-						<Item
-							icon={<SiGit />}
-							label="Git"
-						/>
-					</List>
-				</SkillCard>
-			</Row>
-			<Caption>
+						</SubSubHeadline>
+						<List>
+							<Item
+								icon={<IoLayersSharp />}
+								label="Scrum"
+							/>
+							<Item
+								icon={<SiAtlassian />}
+								label="Jira"
+							/>
+							<Item
+								icon={<SiGit />}
+								label="Git"
+							/>
+						</List>
+					</SkillCard>
+				</Row>
+				<Caption>
 					...extending my knowledge everyday!
-			</Caption>
+				</Caption>
+			</Fade>
 		</Skills>
 	);
 }
@@ -143,50 +150,52 @@ function SkillSection(): JSX.Element {
 function ThoughtsSection(): JSX.Element {
 	return (
 		<Thoughts>
-			<SubHeadline>
+			<Fade bottom>
+				<SubHeadline>
 					Some random thoughts
-			</SubHeadline>
-			<Column>
-				{
-					data.map((thought, index) => {
-						if (index % 2 == 1) {
-							return (
-								<ThoughtCard key={`thought-${index}`}>
-									<ThoughtImage
-										src={`vector/${thought.image}.svg`}
-										style={{ marginRight: "4rem" }}
-									/>
-									<Column style={{ flexGrow: 1, alignItems: "flex-end" }}>
-										<SubSubHeadline style={{ paddingRight: 0 }}>
-											{thought.title}
-										</SubSubHeadline>
-										<ThoughtBody style={{ textAlign: "right" }}>
-											{thought.body}
-										</ThoughtBody>
-									</Column>
-								</ThoughtCard>
-							);
-						} else {
-							return (
-								<ThoughtCard key={`thought-${index}`}>
-									<Column style={{ flexGrow: 1 }}>
-										<SubSubHeadline style={{ paddingLeft: 0 }}>
-											{thought.title}
-										</SubSubHeadline>
-										<ThoughtBody>
-											{thought.body}
-										</ThoughtBody>
-									</Column>
-									<ThoughtImage
-										src={`vector/${thought.image}.svg`}
-										style={{ marginLeft: "4rem" }}
-									/>
-								</ThoughtCard>
-							);
-						}
-					})
-				}
-			</Column>
+				</SubHeadline>
+				<Column>
+					{
+						data.map((thought, index) => {
+							if (index % 2 == 1) {
+								return (
+									<ThoughtCard key={`thought-${index}`}>
+										<ThoughtImage
+											src={`vector/${thought.image}.svg`}
+											style={{ marginRight: "4rem" }}
+										/>
+										<Column style={{ flexGrow: 1, alignItems: "flex-end" }}>
+											<SubSubHeadline style={{ paddingRight: 0 }}>
+												{thought.title}
+											</SubSubHeadline>
+											<ThoughtBody style={{ textAlign: "right" }}>
+												{thought.body}
+											</ThoughtBody>
+										</Column>
+									</ThoughtCard>
+								);
+							} else {
+								return (
+									<ThoughtCard key={`thought-${index}`}>
+										<Column style={{ flexGrow: 1 }}>
+											<SubSubHeadline style={{ paddingLeft: 0 }}>
+												{thought.title}
+											</SubSubHeadline>
+											<ThoughtBody>
+												{thought.body}
+											</ThoughtBody>
+										</Column>
+										<ThoughtImage
+											src={`vector/${thought.image}.svg`}
+											style={{ marginLeft: "4rem" }}
+										/>
+									</ThoughtCard>
+								);
+							}
+						})
+					}
+				</Column>
+			</Fade>
 		</Thoughts>
 	);
 }
