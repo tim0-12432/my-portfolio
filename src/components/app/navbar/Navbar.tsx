@@ -8,11 +8,12 @@ import { isMobileRatio } from "../utility";
 import { Bar, LinkContainer, Logo, ToggleButton } from "./Navbar.style";
 
 function Navbar(): JSX.Element {
+	const {isDark} = useContext(ThemeContext);
 	return (
 		<Sticky>
 			{
 				({style}) =>
-					<Bar style={style}>
+					<Bar isDark={isDark} style={style}>
 						<Logo>Tim0_12432</Logo>
 						{
 							!isMobileRatio() &&
@@ -32,9 +33,10 @@ function Navbar(): JSX.Element {
 }
 
 function Link(props: {label: string, href: string}): JSX.Element {
+	const {isDark} = useContext(ThemeContext);
 	return (
-		<LinkContainer>
-			<NavLink href={props.href}>
+		<LinkContainer isDark={isDark}>
+			<NavLink href={props.href} isDark={isDark}>
 				{props.label}
 			</NavLink>
 		</LinkContainer>
@@ -44,7 +46,7 @@ function Link(props: {label: string, href: string}): JSX.Element {
 function ThemeToggle(): JSX.Element {
 	const {isDark, toggleTheme} = useContext(ThemeContext);
 	return (
-		<ToggleButton onClick={() => toggleTheme()}>
+		<ToggleButton isDark={isDark} onClick={() => toggleTheme()}>
 			{
 				isDark
 					? <IoSunny />

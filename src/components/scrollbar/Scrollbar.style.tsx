@@ -1,9 +1,20 @@
 import styled from "styled-components";
 import { pallette } from "../../resources/constants/Colors";
 
-export const Progressbar = styled.div`
+interface IisDarkProps {
+    isDark?: boolean;
+}
+
+export const Progressbar = styled.div.attrs<IisDarkProps>({})`
     position: fixed;
-    background: ${pallette[200]};
+    background: ${
+	(props: IisDarkProps) => {
+		if (props["isDark"]){
+			return pallette[700];
+		} else {
+			return pallette[200];
+		}
+	}};
     top: 0;
     right: 0;
     width: 10px;

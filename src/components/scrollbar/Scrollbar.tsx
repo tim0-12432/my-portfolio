@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 import { Progressbar, Scrollpath } from "./Scrollbar.style";
 
 function Scrollbar(): JSX.Element {
@@ -9,9 +10,10 @@ function Scrollbar(): JSX.Element {
 		setHeight((window.pageYOffset / totalHeight) * 100);
 	};
 
+	const {isDark} = useContext(ThemeContext);
 	return (
 		<Scrollpath>
-			<Progressbar style={{height: `${height}%`}} />
+			<Progressbar isDark={isDark} style={{height: `${height}%`}} />
 		</Scrollpath>
 	);
 }
