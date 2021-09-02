@@ -4,27 +4,44 @@
         "title": "Corona-Tracker",
         "caption": "Dashboard for provided Covid19-Data e.g. Incidences, Vaccinationcounts",
         "image": "cv1",
+        "logo": "https://github.com/tim0-12432/corona-tracker/blob/b6745f2f5b9c2f325f8fb7f0c6fc43f70506bf0c/src/images/virus.png?raw=true",
         "used": [
             "JavaScript",
             "React"
-        ]
+        ],
+        "frontend": {
+            "colors": ["#8cb369", "#d2ac4b", "#bc4b51", "#333533", "#415a77", "#1b263b", "#0d1b2a"],
+            "font": {
+                "name": "Roboto",
+                "url": "https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+            }
+        }
     },
     {
         "name": "markdown2html",
         "title": "Markdown2Html",
         "caption": "Electronapp which helps creating Markdwon sheets, provides a preview and can convert it to HTML.",
         "image": "m2h1",
+        "logo": "https://raw.githubusercontent.com/tim0-12432/markdown2html/0cbcf658c9caf2b360d3d83a90e4222ac9859841/public/images/markdown2html-logo.svg",
         "used": [
             "TypeScript",
             "React",
             "Electron"
-        ]
+        ],
+        "frontend": {
+            "colors": ["#ff7f2a", "#ff6600", "#d45500", "#ff55dd", "#ff00cc", "#d400aa"],
+            "font": {
+                "name": "Roboto",
+                "url": "https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+            }
+        }
     },
     {
         "name": "github-summary",
         "title": "Github Summary Generator",
         "caption": "Commandline tool generating a summary about a user’s contributions in a given timerange",
         "image": "ghs1",
+        "logo": "",
         "used": [
             "Python"
         ]
@@ -34,10 +51,18 @@
         "title": "CoffeePostcard",
         "caption": "An Electronapp to create REST requests just like 'Postman'.",
         "image": "pc1",
+        "logo": "https://github.com/tim0-12432/coffee-postcard/blob/main/public/images/android-chrome-512x512.png?raw=true",
         "used": [
             "CoffeeScript",
             "React",
             "Electron"
-        ]
+        ],
+        "frontend": {
+            "colors": ["#3e2723", "#533d30", "#8aec7d", "#f5eb63", "#ff6262"],
+            "font": {
+                "name": "Dancing Script",
+                "url": "https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
+            }
+        }
     }
 ]

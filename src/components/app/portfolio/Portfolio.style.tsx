@@ -21,6 +21,7 @@ export const SubSubHeadline = styled.h3`
 `;
 
 export const ProjectContainer = styled(Container)`
+    cursor: pointer;
     width: calc(100% - 10rem);
     height: fit-content;
     margin: 2rem 5rem 0rem 5rem;
@@ -50,8 +51,15 @@ export const ProjectCard = styled(Card)`
 export const PreviewImage = styled.div`
     width: 15rem;
     min-width: 15rem;
+    max-width: 30%;
     border-radius: 15px;
     overflow: hidden;
+`;
+
+export const PreviewImageModal = styled(PreviewImage)`
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 100%;
 `;
 
 export const Caption = styled.h5`
@@ -105,4 +113,40 @@ export const Fab = styled(Button)`
     &:hover, &:focus {
         transform: translateY(0) translateX(-12px);
     }
+`;
+
+export const ColorBar = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0;
+    border-radius: 15px;
+    border: 2px solid ${pallette[300]};
+    overflow: hidden;
+    margin: 0.5rem 0 1rem 0;
+    height: 2rem;
+`;
+
+interface IBgProps {
+    color?: string;
+}
+
+export const Color = styled.div.attrs<IBgProps>({})`
+    width: 2rem;
+    height: 2rem;
+    background-color: ${
+	(props: IBgProps) => {
+		if (props["color"]){
+			return props["color"];
+		} else {
+			return pallette[800];
+		}
+	}};
+`;
+
+export const Font = styled.p`
+    ${normalFont}
+    font-size: 1.5rem;
+    color: ${pallette[300]};
+    padding: 0 0 0.5rem 0;
 `;

@@ -1,5 +1,6 @@
 import React from "react";
 import { StickyContainer } from "react-sticky";
+import { ModalProvider } from "../context/ModalContext";
 import { ThemeProvider } from "../context/ThemeContext";
 import Scrollbar from "../scrollbar/Scrollbar";
 import About from "./about/About";
@@ -12,15 +13,17 @@ import Portfolio from "./portfolio/Portfolio";
 function App(): JSX.Element {
 	return (
 		<ThemeProvider>
-			<Scrollbar />
-			<Home />
-			<StickyContainer>
-				<Navbar />
-				<About />
-				<Portfolio />
-				<Contact />
-				<Footer />
-			</StickyContainer>
+			<ModalProvider>
+				<Scrollbar />
+				<Home />
+				<StickyContainer>
+					<Navbar />
+					<About />
+					<Portfolio />
+					<Contact />
+					<Footer />
+				</StickyContainer>
+			</ModalProvider>
 		</ThemeProvider>
 	);
 }

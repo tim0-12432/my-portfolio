@@ -36,6 +36,6 @@ export default [
 		icon: <IoMail />,
 		network: "E-Mail",
 		name: "info@tim0-12432.me",
-		link: "mailto://info@tim0-12432.me"
+		link: "mailto:info@tim0-12432.me"
 	}
 ];
