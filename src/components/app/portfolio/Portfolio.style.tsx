@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { normalTransition } from "../../../resources/constants/Animations";
 import { pallette, primary, secondary } from "../../../resources/constants/Colors";
-import { headline, normalFont, subSubHeadline } from "../../../resources/constants/Fonts";
+import { headline, normalFont, normalLink, subSubHeadline } from "../../../resources/constants/Fonts";
 import { Button } from "../../elements/Button.style";
 import { Card } from "../../elements/Card.style";
 import { Container } from "../../flex/Flex.style";
@@ -149,4 +149,8 @@ export const Font = styled.p`
     font-size: 1.5rem;
     color: ${pallette[300]};
     padding: 0 0 0.5rem 0;
+`;
+
+export const Link = styled.a`
+    ${normalLink}
 `;

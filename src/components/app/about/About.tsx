@@ -4,9 +4,13 @@ import { SiJava, SiFlask, SiNodeDotJs, SiTypescript, SiAtlassian, SiGit } from "
 import { IoLogoPython, IoLogoHtml5, IoLogoSass, IoLogoReact, IoLayersSharp } from "react-icons/io5";
 import { ThemeContext } from "../../context/ThemeContext";
 import { AboutSection } from "../../elements/Sections.style";
-import { Column, Container, Row } from "../../flex/Flex.style";
+import { Column, Container, Row, Spacer } from "../../flex/Flex.style";
 import { Headline, InfoBox, Profile, Divider, Skills, SubHeadline, SubSubHeadline, SkillCard, List, ListItem, Caption, Thoughts, ThoughtCard, ThoughtBody, ThoughtImage } from "./About.style";
 import data from "../../../resources/data/thoughts.json";
+import { isMobileRatio } from "../utility";
+import { ModalContext } from "../../context/ModalContext";
+import { Button } from "../../elements/Button.style";
+import { Modal, Background } from "../../elements/Modal.style";
 
 function About(): JSX.Element {
 	const {isDark} = useContext(ThemeContext);
@@ -147,7 +151,39 @@ function SkillSection(): JSX.Element {
 	);
 }
 
+function ThoughtModal(props: {thought: any}) {
+	const {toggleModal} = useContext(ModalContext);
+	const {thought} = props;
+
+	return <>
+		<Background offset={window.pageYOffset} />
+		<Modal offset={window.pageYOffset}>
+			<Row>
+				<Spacer />
+				<Button outlined primary onClick={() => toggleModal()}>
+					X
+				</Button>
+			</Row>
+			<Column style={{ flexGrow: 1, paddingTop: "2rem" }}>
+				<SubSubHeadline style={{ paddingLeft: 0 }}>
+					{thought.title}
+				</SubSubHeadline>
+				<ThoughtBody>
+					{thought.body}
+				</ThoughtBody>
+			</Column>
+		</Modal>
+	</>;
+}
+
 function ThoughtsSection(): JSX.Element {
+	const {toggleModal, injectModal} = useContext(ModalContext);
+
+	function toggleThoughtModal(thought: any, index: number) {
+		injectModal(<ThoughtModal thought={thought} />);
+		toggleModal();
+	}
+
 	return (
 		<Thoughts>
 			<Fade bottom>
@@ -158,7 +194,19 @@ function ThoughtsSection(): JSX.Element {
 					{
 						data.map((thought, index) => {
 							if (index % 2 == 1) {
-								return (
+								return isMobileRatio() ? (
+									<ThoughtCard key={`thought-${index}`} onClick={() => toggleThoughtModal(thought, index)}>
+										<ThoughtImage
+											src={`vector/${thought.image}.svg`}
+											style={{ marginRight: "4rem" }}
+										/>
+										<Column style={{ flexGrow: 1, alignItems: "flex-end" }}>
+											<SubSubHeadline style={{ paddingRight: 0 }}>
+												{thought.title}
+											</SubSubHeadline>
+										</Column>
+									</ThoughtCard>
+								) : (
 									<ThoughtCard key={`thought-${index}`}>
 										<ThoughtImage
 											src={`vector/${thought.image}.svg`}
@@ -175,7 +223,19 @@ function ThoughtsSection(): JSX.Element {
 									</ThoughtCard>
 								);
 							} else {
-								return (
+								return isMobileRatio() ? (
+									<ThoughtCard key={`thought-${index}`} onClick={() => toggleThoughtModal(thought, index)}>
+										<ThoughtImage
+											src={`vector/${thought.image}.svg`}
+											style={{ marginRight: "4rem" }}
+										/>
+										<Column style={{ flexGrow: 1, alignItems: "flex-end" }}>
+											<SubSubHeadline style={{ paddingRight: 0 }}>
+												{thought.title}
+											</SubSubHeadline>
+										</Column>
+									</ThoughtCard>
+								) : (
 									<ThoughtCard key={`thought-${index}`}>
 										<Column style={{ flexGrow: 1 }}>
 											<SubSubHeadline style={{ paddingLeft: 0 }}>

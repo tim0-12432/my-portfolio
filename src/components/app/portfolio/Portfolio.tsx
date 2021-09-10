@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext, Fragment } from "react";
 import Fade from "react-reveal/Fade";
 import { IoCodeSlash, IoDesktopOutline, IoEyeOutline, IoGitNetworkOutline, IoStarOutline, IoCalendarOutline } from "react-icons/io5";
 import { Section } from "../../elements/Sections.style";
-import { Headline, ProjectCard, PreviewImage, SubSubHeadline, Font, InfoBox, Caption, Item, Fabs, Fab, ProjectContainer, PreviewImageModal, ColorBar, Color } from "./Portfolio.style";
+import { Headline, ProjectCard, PreviewImage, SubSubHeadline, Font, InfoBox, Caption, Item, Fabs, Fab, ProjectContainer, PreviewImageModal, ColorBar, Color, Link } from "./Portfolio.style";
 import data from "../../../resources/data/projects.json";
 import { Column, Row, Spacer } from "../../flex/Flex.style";
 import axios from "axios";
@@ -179,9 +179,11 @@ function ProjectModal(props: {project: any, details: any}) {
 			</Row>
 			<InfoBox>
 				<Column>
-					<SubSubHeadline>
-						{project.title}
-					</SubSubHeadline>
+					<Link href={details !== undefined ? details.html_url : "https://bit.ly/Github-tim0_12432"} target="_blank" referrerPolicy="origin">
+						<SubSubHeadline>
+							{project.title}
+						</SubSubHeadline>
+					</Link>
 					<Caption>
 						{project.caption}
 					</Caption>

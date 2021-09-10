@@ -109,7 +109,7 @@ export const ListItem = styled.li`
         width: 3.3rem;
         margin-right: 0.3rem;
         ${normalTransition}
-        transform: translateX(200%) rotate(0);
+        ${isMobileRatio() ? "" : "transform: translateX(200%) rotate(0);"}
     }
     &:nth-child(odd) a svg {
         fill: url(#linearPrimary);
@@ -118,16 +118,17 @@ export const ListItem = styled.li`
         fill: url(#linearSecondary);
     }
     a span {
-        opacity: 0;
+        ${isMobileRatio() ? "margin-left: 0.3rem;" : "opacity: 0;"}
         ${normalTransition}
 
         &.help {
             flex-grow: 1;
             text-align: right;
-            transform: translateX(-100%);
+            ${isMobileRatio() ? "" : "transform: translateX(-100%);"}
             font-size: 1.3rem;
         }
     }
+    ${isMobileRatio() ? "" : `
     a:hover {
         span {
             opacity: 1;
@@ -140,15 +141,19 @@ export const ListItem = styled.li`
             transform: translateX(0) rotate(-15deg);
         }
     }
+    `}
 `;
 
 export const SkillCard = styled(Card)`
-    min-width: 20rem;
+    min-width: ${isMobileRatio() ? "calc(100vw - 10rem)" : "20rem"};
     h3 {
         width: 100%;
         text-align: center;
     }
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    &:last-child {
+        margin-bottom: 1rem;
+    }
 `;
 
 export const Caption = styled.h5`
