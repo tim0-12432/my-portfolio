@@ -83,7 +83,7 @@ export const Link = styled.a`
         height: 100%;
         z-index: 2;
         ${normalTransition}
-        transform: translateX(-100%);
+        transform: translateX(calc(-100% - 1px));
     }
     h3, h5, h6 {
         z-index: 3;

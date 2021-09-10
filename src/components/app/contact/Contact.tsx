@@ -4,6 +4,7 @@ import { Section } from "../../elements/Sections.style";
 import { ContactCard, ContactContainer, Headline, Link, SocialCaption, SocialIcon, SocialName } from "./Contact.style";
 import data from "../../../resources/data/social";
 import HelperPointer from "../../helper/Helper";
+import { isMobileRatio } from "../utility";
 
 function Contact() {
 	return (
@@ -27,7 +28,7 @@ function Contact() {
 											{social.name}
 										</SocialName>
 									</Link>
-									{index === 0 ? <HelperPointer /> : null}
+									{index === 0 && isMobileRatio() ? <HelperPointer /> : null}
 								</ContactCard>
 							);
 						})

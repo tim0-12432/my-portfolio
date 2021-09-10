@@ -66,7 +66,7 @@ function Item(props: IItemProps): JSX.Element {
 				<span>{props.label}</span>
 				<span className="help">?</span>
 			</a>
-			{props.label == "Python" ? <HelperPointer /> : null}
+			{props.label == "Python" && isMobileRatio() ? <HelperPointer /> : null}
 		</ListItem>
 	);
 }
