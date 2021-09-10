@@ -12,6 +12,7 @@ import { Background, Modal } from "../../elements/Modal.style";
 import { Button } from "../../elements/Button.style";
 import { isMobileRatio } from "../utility";
 import mapping from "../../../resources/data/languageIconMapping";
+import HelperPointer from "../../helper/Helper";
 
 function Portfolio() {
 	const [details, setDetails] = useState<any>([]);
@@ -68,6 +69,7 @@ function ProjectCards(props: {details: any}) {
 						/>
 					</PreviewImage>
 				</ProjectCard>
+				{index === 0 ? <HelperPointer /> : null}
 			</ProjectContainer>
 		) : (
 			<ProjectContainer key={`project-${index}`} onClick={() => toggleProjectModal(project, index)}>

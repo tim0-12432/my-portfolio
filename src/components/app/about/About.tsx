@@ -11,6 +11,7 @@ import { isMobileRatio } from "../utility";
 import { ModalContext } from "../../context/ModalContext";
 import { Button } from "../../elements/Button.style";
 import { Modal, Background } from "../../elements/Modal.style";
+import HelperPointer from "../../helper/Helper";
 
 function About(): JSX.Element {
 	const {isDark} = useContext(ThemeContext);
@@ -65,6 +66,7 @@ function Item(props: IItemProps): JSX.Element {
 				<span>{props.label}</span>
 				<span className="help">?</span>
 			</a>
+			{props.label == "Python" ? <HelperPointer /> : null}
 		</ListItem>
 	);
 }
@@ -234,6 +236,7 @@ function ThoughtsSection(): JSX.Element {
 												{thought.title}
 											</SubSubHeadline>
 										</Column>
+										{index === 0 ? <HelperPointer /> : null}
 									</ThoughtCard>
 								) : (
 									<ThoughtCard key={`thought-${index}`}>

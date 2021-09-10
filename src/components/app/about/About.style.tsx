@@ -95,6 +95,7 @@ export const List = styled.ul`
 `;
 
 export const ListItem = styled.li`
+    position: relative;
     margin-bottom: 1rem;
     font-size: 1.9rem;
     a {
@@ -164,6 +165,7 @@ export const Caption = styled.h5`
 `;
 
 export const ThoughtCard = styled(Card)`
+    position: relative;
     width: calc(100% - 10rem);
     margin: 1rem 5rem;
     display: flex;

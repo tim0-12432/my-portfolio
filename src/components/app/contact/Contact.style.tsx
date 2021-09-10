@@ -47,6 +47,7 @@ export const ContactContainer = styled(Container)`
 `;
 
 export const ContactCard = styled(Card)`
+    position: relative;
     height: 15rem;
     width: 15rem;
     padding: 0;
