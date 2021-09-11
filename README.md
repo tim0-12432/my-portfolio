@@ -8,3 +8,6 @@
 - React, Typescript
 - react-fade
 - react-sticky
+
+### Additional
+- Dev updates: https://www2.tim0-12432.me
