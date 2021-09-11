@@ -1,11 +1,10 @@
 # my-portfolio
 
 ### Resources
-- icons: https://ionic.io/ionicons
+- icons: react icons
 - illustrations: https://www.manypixels.co/gallery
 
 ### Tech
 - React, Typescript
-- scroll-out
+- react-fade
 - react-sticky
-- css parallax by Filip 
