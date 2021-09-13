@@ -73,7 +73,7 @@ function Item(props: IItemProps): JSX.Element {
 
 function SkillSection(): JSX.Element {
 	return (
-		<Skills>
+		<Skills id="skills">
 			<Fade bottom>
 				<SubHeadline>
 					Skillset
@@ -187,7 +187,7 @@ function ThoughtsSection(): JSX.Element {
 	}
 
 	return (
-		<Thoughts>
+		<Thoughts id="thoughts">
 			<Fade bottom>
 				<SubHeadline>
 					Some random thoughts

@@ -13,7 +13,10 @@ const isProd = process.env.NODE_ENV || "development";
 const tsRule = {
 	test: /\.ts(x?)$/,
 	exclude: [/node_modules/, /build/, /dist/],
-	loader: "ts-loader"
+	loader: "ts-loader",
+    options: {
+        transpileOnly: true,
+    }
 };
 
 const svgRule = {
