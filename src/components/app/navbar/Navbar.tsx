@@ -13,7 +13,7 @@ function Navbar(): JSX.Element {
 		<Sticky>
 			{
 				({style}) =>
-					<Bar isDark={isDark} style={style}>
+					<Bar isDark={isDark} style={style} id="navbar">
 						<Logo>Tim0_12432</Logo>
 						{
 							!isMobileRatio() &&

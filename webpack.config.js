@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-undef */
+const webpack = require("webpack");
 const { resolve, join } = require("path");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -40,6 +41,12 @@ const plugins = [
         patterns: [
             { from: "public" }
         ]
+    }),
+    new webpack.ProvidePlugin({
+        process: "process/browser"
+    }),
+    new webpack.DefinePlugin({
+        'process.env': JSON.stringify(process.env)
     })
 ]
 

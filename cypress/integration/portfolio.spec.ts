@@ -18,4 +18,10 @@ describe("Portfolio", () => {
 		cy.get(PORTFOLIO_SELECTOR).children("div").children("div").first().click();
 		cy.get("#root").children("div").next().next().next().children("div").should("be.visible");
 	});
+
+	it("puts exits the dialog", () => {
+		cy.get(PORTFOLIO_SELECTOR).children("div").children("div").first().click();
+		cy.get("#root").children("div").next().next().next().children("div").find("button").click();
+		cy.get("#root").children("div").next().next().next().should("not.exist");
+	});
 });
