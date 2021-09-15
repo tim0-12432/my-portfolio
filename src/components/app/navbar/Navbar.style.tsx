@@ -81,8 +81,15 @@ export const ToggleButton = styled.button.attrs<IisDarkProps>({})`
     margin: 0 3rem 0 0.3rem;
     outline: none;
     border: none;
+    height: 4rem;
+    width: 5rem;
+    position: relative;
 
     svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         fill: ${
 	(props: IisDarkProps) => {
 		if (props["isDark"]){
@@ -92,9 +99,40 @@ export const ToggleButton = styled.button.attrs<IisDarkProps>({})`
 		}
 	}};
         ${normalTransition}
+
+        &:first-child {
+            height: 100%;
+            width: 100%;
+            fill: ${
+	(props: IisDarkProps) => {
+		if (props["isDark"]){
+			return pallette[300];
+		} else {
+			return pallette[700];
+		}
+	}};
+            transform: translate(-50%, -50%) ${
+	(props: IisDarkProps) => {
+		if (props["isDark"]){
+			return "scale(-1, 1)";
+		} else {
+			return "scale(1)";
+		}
+	}};
+        }
+        &:nth-child(2) {
+            ${
+	(props: IisDarkProps) => {
+		if (props["isDark"]){
+			return "left: 30%";
+		} else {
+			return "right: 0%; left: initial";
+		}
+	}};
+        }
     }
 
-    &:hover svg, &:focus svg {
+    &:hover svg:nth-child(2), &:focus svg:nth-child(2) {
         fill:  ${
 	(props: IisDarkProps) => {
 		if (props["isDark"]){
