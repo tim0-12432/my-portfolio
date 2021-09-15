@@ -1,0 +1,64 @@
+name: Building
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  Tests:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node: [14.x, 15.x, 16.x]
+
+    steps:
+      - name: git checkout
+        uses: actions/checkout@v2
+
+      - name: install node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: install dependencies
+        run: npm ci
+
+      - name: cypress
+        run: npm run test:ci
+        env:
+          CI: false
+
+  Build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: git checkout
+        uses: actions/checkout@v2
+
+      - name: install node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+
+      - name: install dependencies
+        run: |
+          npm ci
+          npm i -g license-report
+
+      - name: build
+        run: npm run build
+        env:
+          CI: false
+
+      - name: licenses
+        run: npm run licenses:ci
+
+      - name: upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: ready-to-deploy-webpage
+          path: |
+            build/
+            licenses.csv
+          if-no-files-found: error
