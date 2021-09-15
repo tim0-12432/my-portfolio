@@ -23,7 +23,7 @@
     "dev": "concurrently -k \"npm run watch\" \"npm run start\"",
     "watch": "cross-env NODE_ENV=development webpack --progress --watch",
     "licenses:ci": "license-report --config license-report.config.json > licenses.csv",
-    "test:ci": "npm run build && concurrently -k \"npm run start\" \"npx cypress run\""
+    "test:ci": "npm run build && concurrently -k -s last \"npm run start\" \"npx cypress run\""
   },
   "eslintConfig": {
     "extends": [
