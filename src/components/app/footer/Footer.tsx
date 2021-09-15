@@ -5,6 +5,8 @@ import { FooterContainer, Paragraph, Divider, DividerContainer } from "./Footer.
 
 function Footer(): JSX.Element {
 	const {isDark} = useContext(ThemeContext);
+
+	const version = process.env.npm_package_version;
 	return (
 		<>
 			<DividerContainer>
@@ -17,7 +19,10 @@ function Footer(): JSX.Element {
 			<FooterSection isDark={isDark} id="copyright">
 				<FooterContainer>
 					<Paragraph isDark={isDark}>
-                    &copy; 2021 by Tim0_12432 | v1.0.0
+						&copy; 2021 by Tim0_12432 | v
+						{
+							version
+						}
 					</Paragraph>
 				</FooterContainer>
 			</FooterSection>

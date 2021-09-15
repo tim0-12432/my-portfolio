@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-undef */
+const webpack = require("webpack");
 const { resolve, join } = require("path");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -13,7 +14,10 @@ const isProd = process.env.NODE_ENV || "development";
 const tsRule = {
 	test: /\.ts(x?)$/,
 	exclude: [/node_modules/, /build/, /dist/],
-	loader: "ts-loader"
+	loader: "ts-loader",
+    options: {
+        transpileOnly: true,
+    }
 };
 
 const svgRule = {
@@ -37,6 +41,12 @@ const plugins = [
         patterns: [
             { from: "public" }
         ]
+    }),
+    new webpack.ProvidePlugin({
+        process: "process/browser"
+    }),
+    new webpack.DefinePlugin({
+        'process.env': JSON.stringify(process.env)
     })
 ]
 
