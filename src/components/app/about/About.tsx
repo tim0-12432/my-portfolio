@@ -61,7 +61,7 @@ interface IItemProps {
 function Item(props: IItemProps): JSX.Element {
 	return (
 		<ListItem>
-			<a href={`https://www.google.com/search?q=${props.label}`} target="_blank">
+			<a href={`https://www.google.com/search?q=${props.label}`} target="_blank" rel="noopener">
 				{props.icon}
 				<span>{props.label}</span>
 				<span className="help">?</span>

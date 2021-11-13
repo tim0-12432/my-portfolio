@@ -76,7 +76,7 @@ function ProjectCards(props: {details: any}) {
 				<Fabs className="fabs">
 					{
 						props.details[index]?.html_url ?
-							<a href={props.details[index].html_url} target="_blank">
+							<a href={props.details[index].html_url} target="_blank" rel="noopener">
 								<Fab outlined>
 									<IoCodeSlash />
 								</Fab>
@@ -84,7 +84,7 @@ function ProjectCards(props: {details: any}) {
 					}
 					{
 						props.details[index]?.homepage ?
-							<a href={props.details[index].homepage} target="_blank">
+							<a href={props.details[index].homepage} target="_blank" rel="noopener">
 								<Fab secondary outlined>
 									<IoDesktopOutline />
 								</Fab>

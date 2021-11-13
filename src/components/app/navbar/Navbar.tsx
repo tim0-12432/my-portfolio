@@ -5,7 +5,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 import { NavLink } from "../../elements/Links.style";
 import { Spacer } from "../../flex/Flex.style";
 import { isMobileRatio } from "../utility";
-import { Bar, LinkContainer, Logo, ToggleButton } from "./Navbar.style";
+import { Bar, LinkContainer, Logo, ToggleButton, Toggler } from "./Navbar.style";
 
 function Navbar(): JSX.Element {
 	const {isDark} = useContext(ThemeContext);
@@ -47,11 +47,13 @@ function ThemeToggle(): JSX.Element {
 	const {isDark, toggleTheme} = useContext(ThemeContext);
 	return (
 		<ToggleButton isDark={isDark} onClick={() => toggleTheme()}>
-			{
-				isDark
-					? <IoSunny />
-					: <IoMoon />
-			}
+			<Toggler isDark={isDark}>
+				{
+					isDark
+						? <IoSunny />
+						: <IoMoon />
+				}
+			</Toggler>
 		</ToggleButton>
 	);
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { IoChatbubbles, IoLogoDiscord, IoLogoGithub, IoLogoInstagram, IoLogoSnapchat, IoMail } from "react-icons/io5";
+import { FaDev } from "react-icons/fa";
 
 export default [
 	{
@@ -31,6 +32,12 @@ export default [
 		network: "GitHub",
 		name: "tim0-12432",
 		link: "https://bit.ly/Github-tim0_12432"
+	},
+	{
+		icon: <FaDev />,
+		network: "Dev.to",
+		name: "tim012432",
+		link: "https://bit.ly/Dev-tim0_12432"
 	},
 	{
 		icon: <IoMail />,
