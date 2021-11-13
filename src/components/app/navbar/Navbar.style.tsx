@@ -75,22 +75,25 @@ export const ToggleButton = styled.button.attrs<IisDarkProps>({})`
     ${normalFont}
     color: ${pallette[700]};
     background: transparent;
-    font-weight: 700;
-    font-size: 1.5rem;
-    padding: 1rem 0.7rem;
+    cursor: pointer;
     margin: 0 3rem 0 0.3rem;
+    padding: 0 0.25rem;
     outline: none;
     border: none;
-    height: 4rem;
-    width: 5rem;
-    position: relative;
-
-    svg {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        fill: ${
+    height: 2.2rem;
+    width: 4rem;
+    display: flex;
+    justify-content: ${
+	(props: IisDarkProps) => {
+		if (props["isDark"]){
+			return "flex-end";
+		} else {
+			return "flex-start";
+		}
+	}};
+    align-items: center;
+    border-radius: 100rem;
+    border: 2px solid ${
 	(props: IisDarkProps) => {
 		if (props["isDark"]){
 			return pallette[300];
@@ -98,12 +101,17 @@ export const ToggleButton = styled.button.attrs<IisDarkProps>({})`
 			return pallette[700];
 		}
 	}};
-        ${normalTransition}
+    ${normalTransition}
+`;
 
-        &:first-child {
-            height: 100%;
-            width: 100%;
-            fill: ${
+export const Toggler = styled.p.attrs<IisDarkProps>({})`
+position: relative;
+font-weight: 700;
+font-size: 1rem;
+height: 1.7rem;
+width: 1.7rem;
+border-radius: 50%;
+background: ${
 	(props: IisDarkProps) => {
 		if (props["isDark"]){
 			return pallette[300];
@@ -111,29 +119,25 @@ export const ToggleButton = styled.button.attrs<IisDarkProps>({})`
 			return pallette[700];
 		}
 	}};
-            transform: translate(-50%, -50%) ${
-	(props: IisDarkProps) => {
-		if (props["isDark"]){
-			return "scale(-1, 1)";
-		} else {
-			return "scale(1)";
-		}
-	}};
-        }
-        &:nth-child(2) {
-            ${
-	(props: IisDarkProps) => {
-		if (props["isDark"]){
-			return "left: 30%";
-		} else {
-			return "right: 0%; left: initial";
-		}
-	}};
-        }
-    }
 
-    &:hover svg:nth-child(2), &:focus svg:nth-child(2) {
-        fill:  ${
+svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    fill: ${
+	(props: IisDarkProps) => {
+		if (props["isDark"]){
+			return pallette[700];
+		} else {
+			return pallette[300];
+		}
+	}};
+    ${normalTransition}
+}
+
+&:hover svg, &:focus svg {
+    fill:  ${
 	(props: IisDarkProps) => {
 		if (props["isDark"]){
 			return "url(#linearPrimary)";
@@ -141,5 +145,5 @@ export const ToggleButton = styled.button.attrs<IisDarkProps>({})`
 			return "url(#linearSecondary)";
 		}
 	}};
-    }
+}
 `;
