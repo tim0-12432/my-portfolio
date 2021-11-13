@@ -1,5 +1,7 @@
 # my-portfolio
 
+[![Build](https://github.com/tim0-12432/my-portfolio/actions/workflows/build.yml/badge.svg)](https://github.com/tim0-12432/my-portfolio/actions/workflows/build.yml)
+
 ### Resources
 - icons: react icons
 - illustrations: https://www.manypixels.co/gallery
