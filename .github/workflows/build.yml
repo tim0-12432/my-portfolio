@@ -1,6 +1,7 @@
 name: Building
 
 on:
+  pull_request:
   push:
     branches: [main]
 
