@@ -25,12 +25,6 @@
     "licenses:ci": "license-report --config license-report.config.json > licenses.csv",
     "test:ci": "npm run build && concurrently -k -s first \"npm run start\" \"npx cypress run\""
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
