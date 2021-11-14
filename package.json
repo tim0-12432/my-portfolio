@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.21.1",
+    "next": "^12.0.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
@@ -18,10 +19,9 @@
     "style:lint": "node_modules/.bin/stylelint \"**/*.style.ts*\"",
     "lint": "npm run es:lint && npm run style:lint",
     "test": "npm run build && concurrently -k \"npm run start\" \"npx cypress open\"",
-    "start": "serve build",
-    "build": "cross-env NODE_ENV=production webpack --progress",
-    "dev": "concurrently -k \"npm run watch\" \"npm run start\"",
-    "watch": "cross-env NODE_ENV=development webpack --progress --watch",
+    "start": "next start",
+    "build": "cross-env NODE_ENV=production next build",
+    "dev": "next dev",
     "licenses:ci": "license-report --config license-report.config.json > licenses.csv",
     "test:ci": "npm run build && concurrently -k -s first \"npm run start\" \"npx cypress run\""
   },
