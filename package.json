@@ -20,7 +20,7 @@
     "lint": "npm run es:lint && npm run style:lint",
     "test": "npm run build && concurrently -k \"npm run start\" \"npx cypress open\"",
     "start": "next start",
-    "build": "cross-env NODE_ENV=production next build",
+    "build": "next build",
     "dev": "next dev",
     "licenses:ci": "license-report --config license-report.config.json > licenses.csv",
     "test:ci": "npm run build && concurrently -k -s first \"npm run start\" \"npx cypress run\""

@@ -82,7 +82,6 @@ if (isProd === "production") {
         minimizer: [new TerserWebpackPlugin()],
     };
 } else {
-    config.devtool = "cheap-module-source-map";
     config.devServer = {
         port: 3000,
         contentBase: join(__dirname, "src"),
