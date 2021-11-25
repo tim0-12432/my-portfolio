@@ -6,6 +6,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
+const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
 
 // Production or Development
 const isProd = process.env.NODE_ENV || "development";
@@ -35,7 +37,7 @@ const plugins = [
     new HtmlWebpackPlugin({
         template: join(__dirname, 'src', 'index.html'),
         filename: "index.html",
-        cache: false
+        cache: false,
     }),
     new CopyWebpackPlugin({
         patterns: [
@@ -47,7 +49,12 @@ const plugins = [
     }),
     new webpack.DefinePlugin({
         'process.env': JSON.stringify(process.env)
-    })
+    }),
+    new CompressionPlugin({
+        test: /\.(js|css)$/,
+        algorithm: "gzip"
+    }),
+    new ImageminWebpWebpackPlugin(),
 ]
 
 // Configuration
@@ -68,13 +75,30 @@ const config = {
 		index: resolve(__dirname, "src", "index.tsx")
 	},
 	output: {
-		filename: "index.bundle.js",
+		filename: "[name].bundle.js",
 		path: resolve(__dirname, "build"),
+        chunkFilename: "chunk-[name].[contenthash].js",
+        clean: true
 	},
 	module: {
 		rules: [tsRule, svgRule],
 	},
-    plugins: plugins
+    plugins: plugins,
+    optimization: {
+        moduleIds: 'named',
+        runtimeChunk: 'single',
+        splitChunks: {
+            chunks: 'all',
+            cacheGroups: {
+                vendors: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    reuseExistingChunk: true,
+                    chunks: 'all'
+                }
+            },
+        },
+    },
 };
 
 if (isProd === "production") {

@@ -1,14 +1,15 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { StickyContainer } from "react-sticky";
 import { ModalProvider } from "../context/ModalContext";
 import { ThemeProvider } from "../context/ThemeContext";
 import Scrollbar from "../scrollbar/Scrollbar";
-import About from "./about/About";
-import Contact from "./contact/Contact";
-import Footer from "./footer/Footer";
 import Home from "./home/Home";
-import Navbar from "./navbar/Navbar";
-import Portfolio from "./portfolio/Portfolio";
+
+const About = React.lazy(() => import(/* webpackChunkName: "about" */"./about/About"));
+const Contact = React.lazy(() => import(/* webpackChunkName: "contact" */"./contact/Contact"));
+const Footer = React.lazy(() => import(/* webpackChunkName: "footer" */"./footer/Footer"));
+const Navbar = React.lazy(() => import(/* webpackChunkName: "navbar" */"./navbar/Navbar"));
+const Portfolio = React.lazy(() => import(/* webpackChunkName: "portfolio" */"./portfolio/Portfolio"));
 
 function App(): JSX.Element {
 	return (
@@ -17,11 +18,13 @@ function App(): JSX.Element {
 				<Scrollbar />
 				<Home />
 				<StickyContainer>
-					<Navbar />
-					<About />
-					<Portfolio />
-					<Contact />
-					<Footer />
+					<Suspense fallback={<div>Loading...</div>}>
+						<Navbar />
+						<About />
+						<Portfolio />
+						<Contact />
+						<Footer />
+					</Suspense>
 				</StickyContainer>
 			</ModalProvider>
 		</ThemeProvider>

@@ -146,7 +146,7 @@ function ProjectCards(props: {details: any}) {
 					</InfoBox>
 					<PreviewImage>
 						<GlassMagnifier
-							imageSrc={`images/projects/${project.image}.png`}
+							imageSrc={`images/projects/${project.image}.webp`}
 							magnifierBorderSize={3}
 							magnifierSize="75%"
 						/>
@@ -267,14 +267,14 @@ function ProjectModal(props: {project: any, details: any}) {
 				isMobileRatio()
 					? <PreviewImageModal>
 						<GlassMagnifier
-							imageSrc={`images/projects/${project.image}.png`}
+							imageSrc={`images/projects/${project.image}.webp`}
 							magnifierBorderSize={3}
 							magnifierSize="75%"
 						/>
 					</PreviewImageModal>
 					: <PreviewImage style={{ marginTop: "1rem" }}>
 						<GlassMagnifier
-							imageSrc={`images/projects/${project.image}.png`}
+							imageSrc={`images/projects/${project.image}.webp`}
 							magnifierBorderSize={3}
 							magnifierSize="75%"
 						/>
