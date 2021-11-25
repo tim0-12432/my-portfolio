@@ -3,3 +3,4 @@
 /build
 *.csv
 /cypress/videos
+stats.json

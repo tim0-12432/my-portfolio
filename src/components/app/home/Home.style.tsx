@@ -26,7 +26,7 @@ export const Image = styled.div`
     position: absolute;
     right: 0;
     top: 0;
-    background-image: url("./images/wallpaper.png");
+    background-image: url("./images/wallpaper.webp");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: right;
