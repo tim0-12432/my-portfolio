@@ -4,3 +4,4 @@
 *.csv
 /cypress/videos
 stats.json
+.dccache
