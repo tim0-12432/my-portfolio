@@ -13,7 +13,7 @@
             "colors": ["#8cb369", "#d2ac4b", "#bc4b51", "#333533", "#415a77", "#1b263b", "#0d1b2a"],
             "font": {
                 "name": "Roboto",
-                "url": "https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+                "url": "./fonts/Roboto/style.css"
             }
         }
     },
@@ -32,7 +32,7 @@
             "colors": ["#ff7f2a", "#ff6600", "#d45500", "#ff55dd", "#ff00cc", "#d400aa"],
             "font": {
                 "name": "Roboto",
-                "url": "https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+                "url": "./fonts/Roboto/style.css"
             }
         }
     },
@@ -61,7 +61,7 @@
             "colors": ["#3e2723", "#533d30", "#8aec7d", "#f5eb63", "#ff6262"],
             "font": {
                 "name": "Dancing Script",
-                "url": "https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
+                "url": "./fonts/DancingScript/style.css"
             }
         }
     }

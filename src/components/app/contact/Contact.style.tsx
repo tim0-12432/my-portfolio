@@ -29,6 +29,7 @@ export const SocialCaption = styled.h5`
 export const SocialName = styled.h6`
     ${normalFont}
     font-size: 1.2rem;
+    text-align: center;
     color: ${pallette[200]};
 `;
 

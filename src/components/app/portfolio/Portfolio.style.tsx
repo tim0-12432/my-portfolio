@@ -52,6 +52,7 @@ export const PreviewImage = styled.div`
     width: 15rem;
     min-width: 15rem;
     max-width: 30%;
+    height: 15rem;
     border-radius: 15px;
     overflow: hidden;
 `;

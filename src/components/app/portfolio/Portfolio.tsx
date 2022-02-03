@@ -61,13 +61,7 @@ function ProjectCards(props: {details: any}) {
 							</SubSubHeadline>
 						</Column>
 					</InfoBox>
-					<PreviewImage>
-						<GlassMagnifier
-							imageSrc={`${project.logo}`}
-							magnifierBorderSize={3}
-							magnifierSize="75%"
-						/>
-					</PreviewImage>
+					<PreviewImage style={{ backgroundImage: `url(${project.logo})`, backgroundSize: "contain" }} />
 				</ProjectCard>
 				{index === 0 ? <HelperPointer /> : null}
 			</ProjectContainer>
