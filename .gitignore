@@ -1,6 +1,8 @@
 /node_modules
 /coverage
 /build
+/dist
+/.next
 *.csv
 /cypress/videos
 stats.json

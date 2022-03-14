@@ -1,7 +1,0 @@
-{
-    "projectId": "8fkir3",
-    "baseUrl": "http://localhost:5000",
-    "experimentalStudio": true,
-    "componentFolder": "cypress/integration",
-    "testFiles": "**/*.spec.*"
-}
